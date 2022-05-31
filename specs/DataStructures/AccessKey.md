@@ -15,7 +15,7 @@ pub struct AccessKey {
 }
 ```
 
-There are 2 types of `AccessKeyPermission` in NEAR currently: `FullAccess` and `FunctionCall`. `FullAccess` grants permissions to issue any action on the account. This includes [DeployContract](Transaction#DeployContract), [Transfer](Transaction#Transfer) tokens, call functions [FunctionCall](Transaction#FunctionCall), [Stake](Transaction#Stake) and even permission to delete the account [DeleteAccountAction](Transaction#DeleteAccountAction). `FunctionCall` on the other hand, can **only** be used to call a specific set of predefined methods on one given contract. It has an allowance of $NEAR that can be spent on **GAS and transaction fees only**. Function call access keys **cannot** be used to transfer $NEAR.
+There are 2 types of `AccessKeyPermission` in NEAR currently: `FullAccess` and `FunctionCall`. `FullAccess` grants permissions to issue any action on the account. This includes [DeployContract](../RuntimeSpec/Actions.md#DeployContractAction), [Transfer](../RuntimeSpec/Actions.md#TransferAction) tokens, call functions [FunctionCall](../RuntimeSpec/Actions.md#FunctionCallAction), [Stake](../RuntimeSpec/Actions.md#StakeAction) and even permission to delete the account [DeleteAccountAction](../RuntimeSpec/Actions.md#DeleteAccountAction). `FunctionCall` on the other hand, can **only** be used to call a specific set of predefined methods on one given contract. It has an allowance of $NEAR that can be spent on **GAS and transaction fees only**. Function call access keys **cannot** be used to transfer $NEAR.
 
 ```rust
 pub enum AccessKeyPermission {
@@ -26,7 +26,7 @@ pub enum AccessKeyPermission {
 
 ## AccessKeyPermission::FunctionCall
 
-Grants limited permission to make [FunctionCall](Transaction.md#FunctionCall) to a specified `receiver_id` and methods of a particular contract with a limit of allowed balance to spend.
+Grants limited permission to make [FunctionCall](../RuntimeSpec/Actions.md#FunctionCall) to a specified `receiver_id` and methods of a particular contract with a limit of allowed balance to spend.
 
 ```rust
 pub struct FunctionCallPermission {
